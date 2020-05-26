@@ -1,0 +1,14 @@
+#example submit file with transfer of the executable and usage of the shared filesystem
+#transfer of executable can be handy as you can keep working on the executable localy while the job is running
+#without interference with the binary the job is running
+executable          = @EXESH
+#transfer_executable = True
+#WhenToTransferOutput = On_Exit
+ShouldTransferFiles  = yes
+universe            = vanilla
++RequestRuntime     = @time
+#input               = /nfs/dust/my/path/to/data/mypayload.data
+output              = @LOGS/mypayload_$(Cluster)_$(Process).out
+error               = @LOGS/mypayload_$(Cluster)_$(Process).error
+log                 = @LOGS/mypayload_$(Cluster)_$(Process).log
+Queue 1 
